@@ -23,7 +23,7 @@ const App = () => {
     };
     
     
-    const url = ${details.IPv4}+e.target.name;
+    const url = {details.IPv4}+e.target.name;
     displayData.url=url
     let options = {}
       try {

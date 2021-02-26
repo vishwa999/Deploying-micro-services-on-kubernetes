@@ -1,4 +1,8 @@
 import React, {useState} from 'react'
+import Header from "components/Header";
+import ExternalInfo from "components/ExternalInfo";
+import AppConfig from "App.config";
+
 
 const App = () => {
 
@@ -6,9 +10,20 @@ const App = () => {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
   const [displayData, setDisplayData] = useState({url:''})
+   const [details, setDetails] = useState(null);
 
   const handleApiCall = async (e) => {
-    const url = 'http://34.67.30.154:30724//'+e.target.name;
+    
+    const getUserGeolocationDetails = () => {
+        fetch(
+            "https://geolocation-db.com/json/344ec440-6bfc-11eb-a0c0-b5dee9e67313"
+        )
+            .then(response => response.json())
+            .then(data => setDetails(data));
+    };
+    
+    
+    const url = ${details.IPv4}+e.target.name;
     displayData.url=url
     let options = {}
       try {
@@ -67,4 +82,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;

@@ -35,3 +35,13 @@
             imagePullPolicy: "IfNotPresent"
             ports:
               - containerPort: 9999
+        affinity:
+          podAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - react-ui
+              topologyKey: "kubernetes.io/hostname"
